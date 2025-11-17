@@ -1,0 +1,10 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: all;
+}
+*{
+  font-family: "Poppins", sans-serif;
+}
+.bar-0{
+    scrollbar-width: none;
+}
