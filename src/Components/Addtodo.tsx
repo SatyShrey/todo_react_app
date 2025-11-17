@@ -17,7 +17,7 @@ export default function Addtodo() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex h-16 bg-base-100 items-center overflow-x-hidden rounded-xl focus-within:border shadow-[0_0_2px] shadow-primary border-primary p-2 max-w-2xl mx-auto my-2"
+      className="flex h-16 bg-base-100 items-center overflow-hidden rounded-xl focus-within:border shadow-[0_0_2px] shadow-primary border-primary p-2 max-w-2xl mx-auto my-2"
     >
       <textarea
         placeholder="Write a note..."
