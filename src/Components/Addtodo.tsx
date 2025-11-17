@@ -23,7 +23,7 @@ export default function Addtodo() {
         placeholder="Write a note..."
         value={todo}
         onChange={(e) => settodo(e.target.value)}
-        className="outline-0 flex-1 px-2 resize-none"
+        className="outline-0 flex-1 px-2 resize-none placeholder:text-base-content/50"
       />
       <AnimatePresence>
         {todo && (
