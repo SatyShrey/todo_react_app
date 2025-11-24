@@ -17,6 +17,7 @@ export type TodosContexts = {
   changeTheme: (theme: string) => void;
   item: Todo | null;
   theme:string;
+  handleEditTodo:(id:string,task:string)=>void;
 };
 
 const TodoContexts = createContext<TodosContexts | null>(null);
@@ -54,6 +55,19 @@ export const ToDoProvider = ({ children }: TodosProviderProps) => {
       return newTodos;
     });
   };
+
+  const handleEditTodo=(id:string,task:string)=>{
+    settodos((prev) => {
+      let newTodos = prev.map((item) => {
+        if (id === item.id) {
+          return { ...item, task };
+        } else {
+          return item;
+        }
+      });
+      return newTodos;
+    });
+  }
 
   const handleDeleteTodo = (id: string) => {
     settodos((prev) => prev.filter((a) => a.id !== id));
@@ -93,7 +107,8 @@ useEffect(()=>{
         toggleTodoCompleted,
         handleDeleteTodo,
         handleSetItem,
-        item,changeTheme,theme
+        item,changeTheme,theme,
+        handleEditTodo
       }}
     >
      <div data-theme={theme} className="min-h-dvh bg-base-300 duration-600 transition-all">

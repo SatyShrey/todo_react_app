@@ -1,5 +1,6 @@
 import Addtodo from "./Components/Addtodo";
 import Header from "./Components/Header";
+import Modal from "./Components/Modal";
 import Todos from "./Components/Todos";
 
 export default function App() {
@@ -8,6 +9,8 @@ export default function App() {
       <Header />
       <Addtodo />
       <Todos />
+      
+       <Modal/>
     </main>
   )
 }

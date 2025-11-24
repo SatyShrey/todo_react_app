@@ -1,21 +1,10 @@
-import { useState } from "react";
 import { useTodos } from "./Provider";
 import { AnimatePresence, motion } from "framer-motion";
 import { Trash2 } from "lucide-react";
 
 export default function Todos() {
-  const { todos, toggleTodoCompleted, handleDeleteTodo } = useTodos();
+  const { todos, toggleTodoCompleted, handleDeleteTodo, handleSetItem } = useTodos();
   let filteredData = todos;
-  const [text, settext] = useState("");
-
-  const openModal=(text:string)=>{
-    const modal = document.getElementById("modal") as HTMLDialogElement | null;
-    if (!modal) return;
-    if(text){
-      settext(text);
-      modal.showModal()
-    }
-  }
 
   if (!filteredData || !filteredData[0]) {
     return <div className="text-center mt-24 text-warning">Empty</div>
@@ -43,7 +32,12 @@ export default function Todos() {
               />
               <div
                 className="cursor-pointer flex-1 overflow-hidden"
-                onClick={() => openModal(item.task)}
+                onClick={() => {
+                  const modal = document.getElementById("modal") as HTMLDialogElement | null;
+                  if (!modal) return;
+                  handleSetItem(item)
+                  modal.showModal()
+                }}
               >
                 <p
                   className={`text-xl whitespace-nowrap text-ellipsis overflow-hidden ${item.completed ? "text-error line-through" : ""
@@ -74,19 +68,7 @@ export default function Todos() {
         })}
       </AnimatePresence>
     </ul>
-    <dialog id="modal" className="modal modal-top">
-      <div className="modal-box max-w-xl mx-auto">
-        <h3 className="font-bold text-lg">Note</h3>
-        <pre className="py-2 whitespace-pre-wrap wrap-break-word">
-          {text}
-        </pre>
-        <div className="modal-action">
-          <form method="dialog">
-            {/* if there is a button in form, it will close the modal */}
-            <button className="btn">Close</button>
-          </form>
-        </div>
-      </div>
-    </dialog></>
+
+  </>
   );
 }
