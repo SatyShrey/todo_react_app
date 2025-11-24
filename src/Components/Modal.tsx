@@ -20,14 +20,14 @@ export default function Modal() {
                 ></textarea>
                 <div className="modal-action">
                     <form method="dialog">
-                        {(text && text === item?.task) ? <button className="btn">Close</button> :
+                        {(text === item?.task) ? <button className="btn">Close</button> :
                             <button
                                 className="btn"
                                 onClick={() => {
                                     if (!item) { return null }
                                     handleEditTodo(item.id, text)
                                 }}
-                            >Save</button>}
+                            >{text?"Save":"Delete note"}</button>}
                     </form>
                 </div>
             </div>

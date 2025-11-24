@@ -57,6 +57,7 @@ export const ToDoProvider = ({ children }: TodosProviderProps) => {
   };
 
   const handleEditTodo=(id:string,task:string)=>{
+    if(!task){return handleDeleteTodo(id)}
     settodos((prev) => {
       let newTodos = prev.map((item) => {
         if (id === item.id) {
