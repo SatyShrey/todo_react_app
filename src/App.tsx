@@ -9,8 +9,7 @@ export default function App() {
       <Header />
       <Addtodo />
       <Todos />
-      
-       <Modal/>
+      <Modal />
     </main>
   )
 }

@@ -15,7 +15,7 @@ export type TodosContexts = {
   handleDeleteTodo: (id: string) => void;
   handleSetItem: (item: Todo | null) => void;
   changeTheme: (theme: string) => void;
-  item: Todo | null;
+  item: Todo | null;setitem:React.Dispatch<React.SetStateAction<Todo | null>>;
   theme:string;
   handleEditTodo:(id:string,task:string)=>void;
 };
@@ -108,7 +108,7 @@ useEffect(()=>{
         toggleTodoCompleted,
         handleDeleteTodo,
         handleSetItem,
-        item,changeTheme,theme,
+        item,setitem,changeTheme,theme,
         handleEditTodo
       }}
     >
