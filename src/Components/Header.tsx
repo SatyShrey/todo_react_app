@@ -50,7 +50,7 @@ export default function Header() {
                         <button className="btn"><X /></button>
                     </form>
                     <h2 className="text-xl font-semibold border-b text-center mt-2">Themes</h2>
-                    <ul className="text-center gap-1 flex-1 overflow-scroll bar-0 pb-14 py-2 grid sm:grid-cols-2">
+                    <ul className="text-center gap-1 flex-1 overflow-scroll pb-14 py-2 grid sm:grid-cols-2">
                         {daisyuiThemes.map((item) => {
                             return <li data-theme={item} key={item} className={`${theme === item ? "" : "btn-outline"} btn btn-primary btn-block`} onClick={() => {
                                 localStorage.setItem("theme", item);
